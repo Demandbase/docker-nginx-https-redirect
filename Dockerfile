@@ -1,17 +1,14 @@
-FROM            ubuntu:12.04
-MAINTAINER      James Sharp <james@ortootech.com>
-
-RUN        echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list
-RUN        apt-get update
-
-# Install nginx
-RUN        apt-get install -y -q nginx
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+FROM alpine
+MAINTAINER Micheal Waltz <mwaltz@demandbase.com>
 
 # Expose port 80
 EXPOSE 80
 
-CMD ["nginx"]
+#Install nginx
+RUN apk --no-cache add ca-certificates nginx
 
 # Add in the config
-ADD default /etc/nginx/sites-available/default
+COPY nginx.conf /etc/nginx/nginx.conf
+
+#Start nginx
+ENTRYPOINT ["nginx"]
