@@ -1,0 +1,11 @@
+FROM nginx:1.10-alpine
+MAINTAINER Micheal Waltz <mwaltz@demandbase.com>
+
+# Expose port 80
+EXPOSE 80
+
+# Add in the config
+COPY nginx.conf.proxy_protocol /etc/nginx/nginx.conf
+
+#Start nginx
+ENTRYPOINT ["nginx"]
