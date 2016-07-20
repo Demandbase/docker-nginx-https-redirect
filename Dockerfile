@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.4
 MAINTAINER Micheal Waltz <mwaltz@demandbase.com>
 
 # Expose port 80
