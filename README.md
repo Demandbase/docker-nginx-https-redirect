@@ -1,3 +1,6 @@
+[![](https://images.microbadger.com/badges/image/demandbase/docker-nginx-https-redirect.svg)](http://microbadger.com/images/demandbase/docker-nginx-https-redirect "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/demandbase/docker-nginx-https-redirect.svg)](http://microbadger.com/images/demandbase/docker-nginx-https-redirect "Get your own version badge on microbadger.com")
+
 docker-nginx-https-redirect
 ===========================
 
