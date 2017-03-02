@@ -11,7 +11,7 @@ http {
     default_type  application/octet-stream;
 
     sendfile        on;
-    keepalive_timeout  65;
+    keepalive_timeout  120;
 log_format elb_log '$proxy_protocol_addr - $remote_user [$time_local] ' '"$request" $status $body_bytes_sent "$http_referer" ' '"$http_user_agent"';
     error_log /dev/stdout info;
     access_log /dev/stdout elb_log;
@@ -20,8 +20,7 @@ log_format elb_log '$proxy_protocol_addr - $remote_user [$time_local] ' '"$reque
         listen         80   proxy_protocol;
         server_name $host;
         #AWS ELB Public Network CIDRs, may need to change depending on your configuration
-        set_real_ip_from 54.241.0.0/16;
-        set_real_ip_from 52.9.0.0/16;
+        set_real_ip_from 0.0.0.0/0;
         real_ip_header proxy_protocol;
 
         return 301 https://$host$request_uri;
