@@ -22,6 +22,8 @@ log_format elb_log '$proxy_protocol_addr - $remote_user [$time_local] ' '"$reque
         #AWS ELB Public Network CIDRs, may need to change depending on your configuration
         set_real_ip_from 0.0.0.0/0;
         real_ip_header proxy_protocol;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
 
         return 301 https://$host$request_uri;
     }
