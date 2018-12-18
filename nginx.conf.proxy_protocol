@@ -16,7 +16,7 @@ log_format elb_log '$proxy_protocol_addr - $remote_user [$time_local] ' '"$reque
     access_log /dev/stdout elb_log;
 
     server {
-        listen         80   proxy_protocol;
+        listen         8080   proxy_protocol;
         server_name $host;
         #AWS ELB Public Network CIDRs, may need to change depending on your configuration
         set_real_ip_from 0.0.0.0/0;
